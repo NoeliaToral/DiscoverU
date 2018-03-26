@@ -1,12 +1,6 @@
 package com.proyecto.discover.controlador;
 
-
-
-import java.util.List;
-
-import org.hibernate.Query;
-import org.hibernate.Session;
-
+import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -17,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.proyecto.discover.dao.Dao;
-import com.proyecto.discover.modelo.Filtro;
-import com.proyecto.discover.util.HibernateUtils;
+
+
+
+
 
 @Controller
 
@@ -27,13 +23,39 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping("/")
-	public String mostrarContactos( @ModelAttribute("filtro") Filtro filtro, Model model) {
+	public String mostrarContactos() {
+				
+		
+		return "home";
+	}
+	
+	@RequestMapping("/listar")
+	public String mostrarContactos(Model model) {
 				
 		model.addAttribute("listado",Dao.busquedaTodosContactos());
 		return "listadoContactos";
 	}
 	
+	@RequestMapping(value="/insertar",method = RequestMethod.GET)
+	public String insertar(HttpServletRequest req){
+		
+		return "insertarProductos";
+	}
 	
+	@RequestMapping(value="/insertarProductos",method = RequestMethod.POST)
+	public String insertarProductos(HttpServletRequest req){
+				
+		String nombre = req.getParameter("nombre");
+		String descripcion = req.getParameter("descripcion");
+		String precio = req.getParameter("precio");
+		String url = req.getParameter("url");
+		String talla = req.getParameter("talla");
+		String material = req.getParameter("material");
+		double precioD = Double.parseDouble(precio);
+		Dao.insertarProductos(nombre, descripcion, precioD, url, talla, material);
+		
+		return "insertadoOK";
+	}
 //	@RequestMapping(value="/listadoContactos",method = RequestMethod.POST)
 //	public String mostrarContactosOrdenados(Filtro filtro,Model model) {
 //				

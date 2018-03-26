@@ -1,6 +1,4 @@
 package com.proyecto.discover.modelo;
-// default package
-// Generated 11-mar-2018 20:41:25 by Hibernate Tools 5.2.3.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
@@ -18,45 +16,7 @@
 <title>Listado</title>
 </head>
 <body>
-	<img src="static/css/images/fondo.png" class="fondo">
-
-
-
-	<ul>
-		<li class="cabeceraLi"><a href="#home">Insertar</a></li>
-		<li><a class="blancoA" href="#news">Actualizar</a></li>
-		<li><a class="blancoA" href="#news">Eliminar</a></li>
-		<li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Listar</a>
-			<div class="dropdown-content">
-				<a class="blancoA" href="#">Listar todos</a> <a href="#">Listar
-					alfabeticamente</a> <a class="blancoA" href="#">Listar por fecha de
-					alta</a>
-			</div></li>
-	</ul>
-	<div class="container">
-		<center>
-			<form:form action="listadoContactos" method="POST"
-				modelAttribute="filtro">
-				<form:label path="seleccion">Filtrar por:</form:label>
-				<form:select path="seleccion">
-					<form:option value="nombre">Nombre</form:option>
-					<form:option value="apellido1">Primer apellido</form:option>
-					<form:option value="apellido2">Segundo apellido</form:option>
-				</form:select>
-				<input type="submit" value="Ordenar" />
-			</form:form>
-
-			<div class="cuaderno2">
-				<table class="table">
-					<tr>
-						<th>idProductos</th>
-						<th>nombreProducto</th>
-						<th>descripcion</th>
-						<th>precio</th>
-						<th>url</th>
-						<th>material</th>
-						<th>talla</th>
-					</tr>
+	
 					<c:forEach items="${listado}" var="persona">
 						<tr>
 							
@@ -71,132 +31,6 @@
 							
 						</tr>
 					</c:forEach>
-				</table>
-			</div>
-		</center>
-	</div>
-	<!--Footer-->
-	<footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
-
-	<!--Footer Links-->
-	<div class="container text-center text-md-left">
-
-		<!-- Footer links -->
-		<div class="row text-center text-md-left mt-3 pb-3">
-
-			<!--First column-->
-			<div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-				<h6 class="text-uppercase mb-4 font-weight-bold">Grupo 3</h6>
-				<p>¿Se te ha perdido la cabeza? Esta agenda te sirve para
-					encontratela</p>
-			</div>
-			<!--/.First column-->
-
-			<hr class="w-100 clearfix d-md-none">
-
-			<!--Second column-->
-			<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-				<h6 class="text-uppercase mb-4 font-weight-bold">Productos</h6>
-				<p>
-					<a class="blancoA" href="#!">Cuaderno</a>
-				</p>
-				<p>
-					<a class="blancoA" href="#!">Boligrafo</a>
-				</p>
-				<p>
-					<a class="blancoA" href="#!">Fluorescente</a>
-				</p>
-				<p>
-					<a class="blancoA" href="#!">Hoja</a>
-				</p>
-			</div>
-			<!--/.Second column-->
-
-			<hr class="w-100 clearfix d-md-none">
-
-			<!--Third column-->
-			<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-				<h6 class="text-uppercase mb-4 font-weight-bold">Útiles links</h6>
-				<p>
-					<a class="blancoA" href="#!">Calendario 2018</a>
-				</p>
-				<p>
-					<a class="blancoA" href="#!">Calendario 2017</a>
-				</p>
-				<p>
-					<a class="blancoA" href="#!">Calendario 2019</a>
-				</p>
-				<p>
-					<a class="blancoA" href="#!">Calendrio 2016</a>
-				</p>
-			</div>
-			<!--/.Third column-->
-
-			<hr class="w-100 clearfix d-md-none">
-
-			<!--Fourth column-->
-			<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-				<h6 class="text-uppercase mb-4 font-weight-bold">Contáctanos</h6>
-				<p>
-					<i class="fa fa-home mr-3"></i> Raul Soriano
-				</p>
-				<p>
-					<i class="fa fa-envelope mr-3"></i> Javier Romero
-				</p>
-				<p>
-					<i class="fa fa-phone mr-3"></i>Noelia Toral Jiménez
-				</p>
-
-			</div>
-			<!--/.Fourth column-->
-
-		</div>
-		<!-- Footer links -->
-
-		<hr>
-
-		<div class="row py-3 d-flex align-items-center">
-
-			<!--Grid column-->
-			<div class="col-md-8 col-lg-8">
-
-				<!--Copyright-->
-				<p class="text-center text-md-left ">2018 Template by Grupo 3</p>
-				<!--/.Copyright-->
-
-			</div>
-			<!--Grid column-->
-
-			<!--Grid column-->
-			<div class="col-md-4 col-lg-4 ml-lg-0">
-
-				<!--Social buttons-->
-				<div class="text-center text-md-right">
-					<ul class="list-unstyled list-inline">
-						<li class="list-inline-item"><a
-							class="btn-floating btn-sm rgba-white-slight mx-1"><i
-								class="fa fa-facebook"></i></a></li>
-						<li class="list-inline-item"><a
-							class="btn-floating btn-sm rgba-white-slight mx-1"><i
-								class="fa fa-twitter"></i></a></li>
-						<li class="list-inline-item"><a
-							class="btn-floating btn-sm rgba-white-slight mx-1"><i
-								class="fa fa-google-plus"></i></a></li>
-						<li class="list-inline-item"><a
-							class="btn-floating btn-sm rgba-white-slight mx-1"><i
-								class="fa fa-linkedin"></i></a></li>
-					</ul>
-				</div>
-				<!--/.Social buttons-->
-
-			</div>
-			<!--Grid column-->
-
-		</div>
-
-	</div>
-
-	</footer>
-	<!--/.Footer-->
+				
 </body>
 </html>
