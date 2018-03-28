@@ -16,7 +16,7 @@
 <title>Listado</title>
 </head>
 <body>
-	
+		<form action="comprarProducto" method ="post">
 					<c:forEach items="${listado}" var="persona">
 						<tr>
 							
@@ -30,7 +30,9 @@
 							<td></td>
 							
 						</tr>
+						<input type="hidden" name=idProducto value="${persona.idProductos}">
+						<input type="submit" name="comprar" value="comprar">
 					</c:forEach>
-				
+				</form>
 </body>
 </html>

@@ -56,13 +56,14 @@ public class HomeController {
 		
 		return "insertadoOK";
 	}
-//	@RequestMapping(value="/listadoContactos",method = RequestMethod.POST)
-//	public String mostrarContactosOrdenados(Filtro filtro,Model model) {
-//				
-//		model.addAttribute("listado",Dao.busquedaOrdenada(filtro.getSeleccion()));
-//		return "listadoContactos";
-//	}
-	
+
+	@RequestMapping(value="/comprarProducto", method = RequestMethod.POST)
+	public String comprarProducto(HttpServletRequest req) {
+		String idString = req.getParameter("idProducto");
+		int id = Integer.parseInt(idString);
+		System.out.println("id producto: "+id);
+		return "insertadoOK";
+	}
 
 //	@RequestMapping(value="/datosContacto")
 //	public String mostrarContacto(@RequestParam int idPersona,Model model){
